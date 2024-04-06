@@ -1,10 +1,10 @@
 #include <QCoreApplication>
-
+#include<QTextStream>
 #include<QDebug>
+#include <iostream>
+#include <conio.h>
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
-    qInfo() << "C++ Style Info Message";
-    return a.exec();
+    return 0;
 }

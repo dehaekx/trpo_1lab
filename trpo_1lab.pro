@@ -8,7 +8,7 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         application.cpp \
-        console.cpp \
+        consoleloger.cpp \
         filemanager.cpp \
         loger.cpp \
         main.cpp
@@ -20,6 +20,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     application.h \
-    console.h \
+    consoleloger.h \
     filemanager.h \
     loger.h
