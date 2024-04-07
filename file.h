@@ -4,13 +4,23 @@
 #include <QString>
 
 
-class File
+class File : public QFile
 {
+private:
     QString fileName;
     QString filePath;
-    QString fileSize;
+    qint64 fileSize;
+
 public:
-    File();
+    File(QString fileName, QString filePath);
+
+    QString getFileName();
+    QString getFilePath();
+    qint64 getFileSize();
+
+    void setFileName(QString newName);
+    void setFilePath(QString newPath);
+    void setFileSize(qint64 newSize);
 
 };
 
