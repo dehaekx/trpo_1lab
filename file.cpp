@@ -1,6 +1,6 @@
 #include "file.h"
 
-File::File(QString name, QString path):fileName(name), filePath(path) {}
+File::File(QString name, QString path): fileName(name), filePath(path), fileSize(0) {}
 
 QString File::getFileName() {return fileName;}
 QString File::getFilePath() {return filePath;}
