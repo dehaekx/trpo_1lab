@@ -12,9 +12,9 @@ File::File(QString name, QString path):
     QFileInfo *fileinfo = new QFileInfo(filePath);
     if (fileinfo)
     {
-        this->fileName = QString(fileinfo->fileName());
+        this->fileName = fileinfo->fileName();
+        this->filePath = fileinfo->filePath();
         this->fileSize = fileinfo->size();
-
     }
     delete fileinfo;
 }
