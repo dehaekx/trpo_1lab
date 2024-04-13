@@ -25,6 +25,15 @@ public:
     void setFilePath(QString newPath);
     void setFileSize(qint64 newSize);
 
+signals: // СИГНАЛ НАШ
+    void fileChanged(const QString& message);
+
+public slots:
+    void checkFile();
+
+private:
+    bool isFileChanged();
+
 };
 
 #endif // FILE_H
