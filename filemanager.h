@@ -3,6 +3,7 @@
 #include <QVector>
 #include <QObject>
 #include "File.h"
+#include <QDebug>
 
 class FileManager: public QObject
 {
@@ -13,7 +14,6 @@ private:
 public:
     FileManager();
     void addFile(File* file);
-    void removeFile(File* file);
     void updateFile(QString fileName, qint64 fileSize);
 public slots:
     void fileChangedSlot(File* file);
