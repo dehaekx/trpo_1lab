@@ -6,11 +6,10 @@ File::File()
     this->fileSize = 0;
 }
 
-File::File(QString name, QString path):
-    fileName(name), filePath(path), fileSize(0)
+File::File(QString path)
 {
-    QFileInfo *fileinfo = new QFileInfo(filePath);
-    if (fileinfo)
+    QFileInfo *fileinfo = new QFileInfo(path);
+    if (fileinfo->exists())
     {
         this->fileName = fileinfo->fileName();
         this->filePath = fileinfo->filePath();

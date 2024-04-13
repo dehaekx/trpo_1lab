@@ -12,7 +12,8 @@ private:
     QString filePath;
     qint64 fileSize;
 public:
-    File(QString fileName, QString filePath);
+    File();
+    File(QString filePath);
 
         // три геттера
     QString getFileName();
