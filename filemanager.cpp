@@ -16,15 +16,14 @@ void FileManager::fileChangedSlot(File* file)
     {
         if (file->size() > 0)
         {
-            qDebug() << "File " << file->getFileName() << "существует и размер:" << file->getFileSize() << "bytes\n";
-        }
+            loger->logMessage("File " + file->getFileName() + " существует и размер: " + file->getFileSize() + " bytes.");        }
         else
         {
-            qDebug() << "File " << file->getFileName() << "существует, но пустой\n";
+            loger->logMessage("File " + file->getFileName() + " существует, но пустой");
         }
     }
     else
     {
-        qDebug() << "File " << file->getFileName() << "не существует\n";
+        loger->logMessage("File " + file->getFileName() + " не существует");
     }
 }
