@@ -3,10 +3,12 @@
 #include <QFile>
 #include <QString>
 #include <QFileInfo>
+#include <QObject>
 
 
 class File : public QFile
 {
+    Q_OBJECT
 private:
     QString fileName;
     QString filePath;
@@ -26,7 +28,7 @@ public:
     void setFileSize(qint64 newSize);
 
 signals: // СИГНАЛ НАШ
-    void fileChanged(const QString& message);
+    void fileChanged(); // const QString& message
 
 public slots:
     void checkFile();

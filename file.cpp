@@ -44,6 +44,6 @@ void File::checkFile()
 {
     if (isFileChanged())
     {
-        emit fileChanged("Файл " + fileName + " был изменен");
+        emit fileChanged(); // "Файл " + fileName + " был изменен"
     }
 }

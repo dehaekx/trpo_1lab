@@ -11,5 +11,7 @@ int main(int argc, char *argv[]) {
     QFile file1("file1.txt");
     QFile file2("file2.txt");
 
+
+
     return a.exec();
 }
