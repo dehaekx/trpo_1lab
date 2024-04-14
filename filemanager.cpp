@@ -2,6 +2,8 @@
 
 FileManager::FileManager() {}
 
+FileManager::FileManager(Loger* loger): loger(loger) {}
+
 void FileManager::addFile(File* file)
 {
     files.append(file);

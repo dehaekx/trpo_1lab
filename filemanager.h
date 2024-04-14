@@ -14,6 +14,7 @@ private:
     Loger * loger;
 public:
     FileManager();
+    FileManager(Loger* loger);
     void addFile(File* file);
     void updateFile(QString fileName, qint64 fileSize);
 public slots:
