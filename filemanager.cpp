@@ -1,25 +1,23 @@
 #include "filemanager.h"
 
-FileManager::FileManager() {}
-
-FileManager::FileManager(Loger* loger): loger(loger) {}
+FileManager::FileManager(Loger* loger): loger(loger)
+{
+    connect(this, SIGNAL(upd_signal(File*, bool, qint64)),
+            this, SLOT(update(File*, bool, qint64)));
+}
 
 void FileManager::addFile(File* file)
 {
     files.append(file);
-    connect(file, &File::fileChanged,
-            this, &FileManager::fileChangedSlot(file)); // устанавливаем сигнал filechanged с слотом fileChangedSlot
-
+    connect(this, SIGNAL(log_signal(QString)),
+            loger, SLOT(log(QString)));
 }
 
-void FileManager::fileChangedSlot(File* file)
+void FileManager::update(File* F, const bool &ex, const qint64 &s)
 {
-    if (file)
-    {
-        loger->logMessage("File " + file->getFileName() + " существует и размер: " + file->getFileSize() + " bytes.");
-    }
+    if (ex)
+        emit log_signal("File " + F->getFileName() + " был изменен. Размер: " + QString::number(s));
     else
-    {
-        loger->logMessage("File " + file->getFileName() + " не существует");
-    }
+        emit log_signal("File " + F->getFileName() + " не был изменен");
 }
+

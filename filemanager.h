@@ -12,14 +12,19 @@ class FileManager: public QObject
 private:
     QVector<File*> files;
     Loger * loger;
+
 public:
-    FileManager();
     FileManager(Loger* loger);
     void addFile(File* file);
-    void updateFile(QString fileName, qint64 fileSize);
-public slots:
-    void fileChangedSlot(File* file);
+    //void setLog(Loger *log);
 
+signals:
+    void log_signal(const QString &str);
+    void upd_signal(File* F, const bool &Exist, const qint64 &size);
+
+public slots:
+    //void check();
+    void update(File* F, const bool &Exist, const qint64 &size);
 };
 
 #endif // FILEMANAGER_H
