@@ -6,9 +6,8 @@
 #include <QObject>
 
 
-class File : public QFile
+class File
 {
-    Q_OBJECT
 private:
     QString fileName;
     QString filePath;
