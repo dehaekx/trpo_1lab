@@ -3,13 +3,18 @@
 #include<QDebug>
 #include <conio.h>
 #include "file.h"
+#include "consoleloger.h"
+#include "filemanager.h"
 
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
-    // Создаем объекты файлов и менеджера файлов
-    QFile file1("file1.txt");
-    QFile file2("file2.txt");
+    ConsoleLoger lg;
+    FileManager manager(&lg);
+    QObject::connect(&manager, SIGNAL(log_signal(QString)), &lg, SLOT(log(QString)));
+
+    File *f;
+    manager.addFile(f);
 
 
 

@@ -8,7 +8,6 @@ class Loger: public QObject
 {
     Q_OBJECT // максор
 public:
-    Loger();
     virtual void logMessage(const QString& message) = 0; // pure virtual function
 };
 
