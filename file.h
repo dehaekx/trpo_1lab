@@ -15,7 +15,7 @@ private:
     qint64 fileSize;
 public:
     File();
-    File(QString filePath);
+    File(const QString &filePath);
 
         // три геттера
     QString getFileName();
@@ -26,15 +26,6 @@ public:
     void setFileName(QString newName);
     void setFilePath(QString newPath);
     void setFileSize(qint64 newSize);
-
-signals: // СИГНАЛ НАШ
-    void fileChanged(); // const QString& message
-
-public slots:
-    void checkFile();
-
-private:
-    bool isFileChanged();
 
 };
 

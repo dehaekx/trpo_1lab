@@ -6,7 +6,7 @@ File::File()
     this->fileSize = 0;
 }
 
-File::File(QString path)
+File::File(const QString &path)
 {
     QFileInfo *fileinfo = new QFileInfo(path);
     if (fileinfo->exists())
@@ -25,25 +25,3 @@ qint64 File::getFileSize() {return fileSize;}
 void File::setFileName(QString name) {fileName = name;}
 void File::setFilePath(QString path) {filePath = path;}
 void File::setFileSize(qint64 size) {fileSize = size;}
-
-bool File::isFileChanged()
-{
-    QFileInfo fileInfo(filePath);
-    if (!fileInfo.exists())
-    {
-        return true; // Файл не существует
-    }
-    if (fileInfo.size() != fileSize)
-    {
-        return true; // Размер файла был изменен
-    }
-    return false; // Файл существует и размер тот же
-}
-
-void File::checkFile()
-{
-    if (isFileChanged())
-    {
-        emit fileChanged(); // "Файл " + fileName + " был изменен"
-    }
-}
