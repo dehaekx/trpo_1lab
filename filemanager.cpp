@@ -1,16 +1,19 @@
 #include "filemanager.h"
 
-FileManager::FileManager(Loger* loger): loger(loger)
+FileManager::FileManager(Loger* lg)
 {
-    connect(this, SIGNAL(upd_signal(File*, bool, qint64)),
-            this, SLOT(update(File*, bool, qint64)));
+    if (lg)
+    {
+        loger = lg;
+        connect(this, SIGNAL(upd_signal(File*, bool, qint64)), this, SLOT(update(File*, bool, qint64)));
+    }
 }
 
 void FileManager::addFile(File* file)
 {
-    files.append(file);
-    connect(this, SIGNAL(log_signal(QString)),
-            loger, SLOT(log(QString)));
+    // нужно проверку сделать на file.exist
+    files.push_back(file);
+    connect(this, SIGNAL(log_signal(QString)), loger, SLOT(log(QString)));
 }
 
 void FileManager::update(File* F, const bool &ex, const qint64 &s)

@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     QObject::connect(&manager, SIGNAL(log_signal(QString)), &lg, SLOT(log(QString)));
 
     File *f;
-    manager.addFile(f);
+
 
 
 

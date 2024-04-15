@@ -16,14 +16,14 @@ private:
 public:
     FileManager(Loger* loger);
     void addFile(File* file);
-    //void setLog(Loger *log);
+    void setLog(Loger *log);
 
 signals:
     void log_signal(const QString &str);
     void upd_signal(File* F, const bool &Exist, const qint64 &size);
 
 public slots:
-    //void check();
+    void check();
     void update(File* F, const bool &Exist, const qint64 &size);
 };
 
