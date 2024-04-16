@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 
     ConsoleLoger lg;
     FileManager manager(&lg);
-    QObject::connect(&manager, SIGNAL(log_signal(QString)), &lg, SLOT(log(QString)));
+    QObject::connect(&manager, SIGNAL(log_signal(QString)), &lg, SLOT(logMessage(QString)));
 
     File *f;
 

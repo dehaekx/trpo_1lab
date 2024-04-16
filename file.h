@@ -25,7 +25,6 @@ public:
     void setFileName(QString newName);
     void setFilePath(QString newPath);
     void setFileSize(qint64 newSize);
-
 };
 
 #endif // FILE_H
