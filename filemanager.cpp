@@ -11,7 +11,7 @@ FileManager::FileManager(Loger* lg)
 
 void FileManager::addFile(File* file)
 {
-    // нужно проверку сделать на file.exist
+    // нужно проверку сделать на file.exist // может на правильный путь еще
     if (file)
     {
     files.push_back(file);
@@ -22,9 +22,14 @@ void FileManager::addFile(File* file)
 
 void FileManager::update(File* F, const bool &ex, const qint64 &s) // нужно дописать все проверки и выводить правильный вывод
 {
-    if (ex)
+    if (ex) // Файл существует, файл был изменен - на экран выводится факт существования файла, сообщение о том что файл был изменен и его размер
+    {
+        F->setFileSize(s);
         emit log_signal("File " + F->getFileName() + " был изменен. Размер: " + QString::number(s));
+    }
     else
+    {
         emit log_signal("File " + F->getFileName() + " не был изменен");
+    }
 }
 
