@@ -12,8 +12,12 @@ FileManager::FileManager(Loger* lg)
 void FileManager::addFile(File* file)
 {
     // нужно проверку сделать на file.exist
+    if (file)
+    {
     files.push_back(file);
-    connect(this, SIGNAL(log_signal(QString)), loger, SLOT(logMessage(QString)));
+        emit log_signal(("File ") + file->getFileName() +
+                    (" added. Size: ") + QString::number(file->getFileSize()));
+    }
 }
 
 void FileManager::update(File* F, const bool &ex, const qint64 &s) // нужно дописать все проверки и выводить правильный вывод
