@@ -10,7 +10,6 @@ SOURCES += \
         consoleloger.cpp \
         file.cpp \
         filemanager.cpp \
-        loger.cpp \
         main.cpp
 
 # Default rules for deployment.
