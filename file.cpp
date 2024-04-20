@@ -14,6 +14,7 @@ File::File(const QString &path)
         this->fileName = fileinfo->fileName();
         this->filePath = fileinfo->filePath();
         this->fileSize = fileinfo->size();
+        this->fileExist = fileinfo->exists();
     }
     delete fileinfo;
 }
@@ -21,6 +22,7 @@ File::File(const QString &path)
 QString File::getFileName() {return fileName;}
 QString File::getFilePath() {return filePath;}
 qint64 File::getFileSize() {return fileSize;}
+bool File::getFileExist() {return fileExist;}
 
 void File::setFileName(QString name) {fileName = name;}
 void File::setFilePath(QString path) {filePath = path;}

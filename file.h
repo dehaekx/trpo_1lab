@@ -12,6 +12,7 @@ private:
     QString fileName;
     QString filePath;
     qint64 fileSize;
+    bool fileExist;
 public:
     File();
     File(const QString &filePath);
@@ -20,6 +21,7 @@ public:
     QString getFileName();
     QString getFilePath();
     qint64 getFileSize();
+    bool getFileExist();
 
         // три сеттера
     void setFileName(QString newName);
