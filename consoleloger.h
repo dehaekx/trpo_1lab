@@ -6,8 +6,6 @@
 
 class ConsoleLoger: public Loger
 {
-public:
-
 public slots:
     void logMessage(const QString& message) override;
 };
