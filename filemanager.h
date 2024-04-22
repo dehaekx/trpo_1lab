@@ -10,19 +10,15 @@ class FileManager: public QObject
 {
     Q_OBJECT
 private:
-    QVector<File*> files;
+    QVector<File> files;
     Loger * loger;
 
 public:
     FileManager(Loger* lg);
-    void addFile(File* file);
+    void addFile(const QString &filePath);
 
 signals:
     void log_signal(const QString &str);
-    void upd_signal(File* F, const bool &Exist, const qint64 &size);
-
-public slots:
-    void update(File* F, const bool &Exist, const qint64 &size);
 };
 
 #endif // FILEMANAGER_H
