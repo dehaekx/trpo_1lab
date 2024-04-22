@@ -8,15 +8,14 @@ File::File()
 
 File::File(const QString &path)
 {
-    QFileInfo *fileinfo = new QFileInfo(path);
-    if (fileinfo->exists())
+    QFileInfo fileinfo(path);  // = new QFileInfo(path);
+    if (fileinfo.exists())
     {
-        this->fileName = fileinfo->fileName();
-        this->filePath = fileinfo->filePath();
-        this->fileSize = fileinfo->size();
-        this->fileExist = fileinfo->exists();
+        this->fileName = fileinfo.fileName();
+        this->filePath = fileinfo.filePath();
+        this->fileSize = fileinfo.size();
+        this->fileExist = fileinfo.exists();
     }
-    delete fileinfo;
 }
 
 QString File::getFileName() {return fileName;}
