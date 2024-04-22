@@ -4,6 +4,7 @@ File::File()
     this->fileName = QString("");
     this->filePath = QString("");
     this->fileSize = 0;
+    this->fileExist = false;
 }
 
 File::File(const QString &path)
