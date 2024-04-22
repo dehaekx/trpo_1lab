@@ -12,6 +12,23 @@ FileManager::FileManager(Loger* lg)
 void FileManager::addFile(const QString &filePath)
 {
     File temp(filePath);
-    files.push_back(temp);
+    if (temp.getFileExist())
+    {
+        File temp(filePath);
+        files.push_back(temp);
+    }
 }
 
+void FileManager::checkfiles()
+{
+    File temp;
+    for (int i = 0; i < files.size(); i++)
+    {
+        temp.setFilePath(files[i].getFilePath());
+        if (temp.getFileExist() != files[i].getFileExist() || temp.getFileSize() != files[i].getFileSize())
+        {
+            emit log_signal("File" + temp.getFileName() + "is changed. Exist: " + temp.getFileExist() + ". Size: "
+                            + temp.getFileSize());
+        }
+    }
+}

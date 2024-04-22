@@ -16,7 +16,7 @@ private:
 public:
     FileManager(Loger* lg);
     void addFile(const QString &filePath);
-
+    void checkfiles();
 signals:
     void log_signal(const QString &str);
 };
