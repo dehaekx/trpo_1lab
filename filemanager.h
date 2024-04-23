@@ -5,7 +5,6 @@
 #include "File.h"
 #include <QDebug>
 #include "loger.h"
-
 class FileManager: public QObject
 {
     Q_OBJECT

@@ -11,6 +11,7 @@ FileManager::FileManager(Loger* lg)
 
 void FileManager::addFile(const QString &filePath)
 {
+    qDebug()<< "filepath: " << filePath << Qt::endl;
     File temp(filePath);
     if (temp.getFileExist())
     {

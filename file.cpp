@@ -27,3 +27,4 @@ bool File::getFileExist() {return fileExist;}
 void File::setFileName(QString name) {fileName = name;}
 void File::setFilePath(QString path) {filePath = path;}
 void File::setFileSize(qint64 size) {fileSize = size;}
+void File::setFileExist(bool newExist) {fileExist = newExist;}
