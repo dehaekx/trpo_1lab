@@ -5,6 +5,7 @@
 #include "File.h"
 #include <QDebug>
 #include "loger.h"
+
 class FileManager: public QObject
 {
     Q_OBJECT
@@ -16,6 +17,7 @@ public:
     FileManager(Loger* lg);
     void addFile(const QString &filePath);
     void checkfiles();
+    void checkFileChanges(const QFileInfo& fileNow, File& fileOld);
 signals:
     void log_signal(const QString &str);
 };
