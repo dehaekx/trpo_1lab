@@ -9,7 +9,7 @@ File::File()
 
 File::File(const QString &path)
 {
-    QFileInfo fileinfo(path);  // = new QFileInfo(path);
+    QFileInfo fileinfo(path);
     if (fileinfo.exists())
     {
         this->fileName = fileinfo.fileName();

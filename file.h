@@ -17,13 +17,13 @@ public:
     File();
     File(const QString &filePath);
 
-        // три геттера
+        // геттеры
     QString getFileName();
     QString getFilePath();
     qint64 getFileSize();
     bool getFileExist();
 
-        // три сеттера
+        // сеттеры
     void setFileName(QString newName);
     void setFilePath(QString newPath);
     void setFileSize(qint64 newSize);
