@@ -30,10 +30,10 @@ void FileManager::addFile(const QString &filePath)
 void FileManager::checkfiles()
 {
     if(this->files.size() > 0){
-        QFileInfo fileInfoNow;
+        QFileInfo currentfile;
         for(auto file : this->files){
-            fileInfoNow.setFile(file.getFilePath());
-            this->checkFileChanges(fileInfoNow, file);
+            currentfile.setFile(file.getFilePath());
+            this->checkFileChanges(currentfile, file);
         }
         return;
     }
