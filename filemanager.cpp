@@ -11,9 +11,9 @@ FileManager::FileManager(Loger* lg)
 
 void FileManager::addFile(const QString &filePath)
 {
-    qDebug()<< "filepath: " << filePath << Qt::endl;
+    qDebug() << "filepath: " << filePath << Qt::endl;
     File temp(filePath);
-    for (auto x: this->files)
+    for (auto x: this->files) // Проверим, что еще раз файл тот же не добавим
     {
         if (temp.getFilePath() == x.getFilePath())
         {
@@ -29,39 +29,46 @@ void FileManager::addFile(const QString &filePath)
 
 void FileManager::checkfiles()
 {
-    if(this->files.size() > 0){
+    if (this->files.size() > 0)
+    {
         QFileInfo currentfile;
-        for(auto file : this->files){
+        for(auto file : this->files)
+        {
             currentfile.setFile(file.getFilePath());
             this->checkFileChanges(currentfile, file);
         }
         return;
     }
-    emit log_signal("No files\n");
+    emit log_signal("No files");
 }
 
-void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld){
+void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
+{
     QString message = "Name: " + fileOld.getFileName() + " , path: " + fileOld.getFilePath();
-    if(currentfile.exists() == fileOld.getFileExist())
+
+    if (currentfile.exists() == fileOld.getFileExist())
     {
-        if(!currentfile.exists() || currentfile.size() == fileOld.getFileSize()) // изменений не произошло
-            return;
+        if (currentfile.size() == fileOld.getFileSize())   // изменений не произошло
+        {
+            message += " - EXIST, " + QString(" SIZE: ") + QString::number(fileOld.getFileSize());
+        }
+        else // Изменился размер
+        {
+            message += " - EXIST, " + QString("OLD SIZE: ") + QString::number(fileOld.getFileSize())
+                   + " NEW SIZE: " + QString::number(currentfile.size());
 
-                    // Изменился размер
-        message += " - EXIST, " + QString("OLD SIZE: ") + QString::number(fileOld.getFileSize())
-                   +" NEW SIZE: " + QString::number(currentfile.size());
-
-        fileOld.setFileSize(currentfile.size());
+            fileOld.setFileSize(currentfile.size());
+        }
     }
     else
     {
-        if(currentfile.exists()) // create file
+        if (currentfile.exists()) // старый не сущест, а новый существует
         {
             message += QString(" - EXIST, ") + QString(" SIZE: ") + QString::number(currentfile.size());
         }
         else
-        {                       // delete
-            message+=QString(" - NOT EXIST ");
+        {
+            message += QString(" - NOT EXIST ");
         }
         fileOld.setFileSize(currentfile.size());
         fileOld.setFileExist(currentfile.exists());
