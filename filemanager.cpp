@@ -50,7 +50,8 @@ void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
     {
         if (currentfile.size() == fileOld.getFileSize())   // изменений не произошло
         {
-            message += " - EXIST, " + QString(" SIZE: ") + QString::number(fileOld.getFileSize());
+            //message += " - EXIST, " + QString(" SIZE: ") + QString::number(fileOld.getFileSize());
+            return;
         }
         else // Изменился размер
         {
