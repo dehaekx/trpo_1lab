@@ -24,7 +24,7 @@ QString File::getFilePath() {return filePath;}
 qint64 File::getFileSize() {return fileSize;}
 bool File::getFileExist() {return fileExist;}
 
-void File::setFileName(QString name) {fileName = name;}
-void File::setFilePath(QString path) {filePath = path;}
-void File::setFileSize(qint64 size) {fileSize = size;}
-void File::setFileExist(bool newExist) {fileExist = newExist;}
+void File::setFileName(QString name) {this->fileName = name;}
+void File::setFilePath(QString path) {this->filePath = path;}
+void File::setFileSize(qint64 size) {this->fileSize = size;}
+void File::setFileExist(bool newExist) {this->fileExist = newExist;}
