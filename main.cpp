@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     // QString test = currentFilePathProject + "/trpo_1lab/test_files/test3.jpg";
 
     int count_of_files;
-    qDebug() << "Input counts of files which you want to track: ";
+    qDebug() << "Input counts > 0 of files which you want to track: ";
     cin >> count_of_files;
     for (int i = 0; i < count_of_files; i++)
     {
