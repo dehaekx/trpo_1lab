@@ -32,7 +32,7 @@ void FileManager::checkfiles()
     if (this->files.size() > 0)
     {
         QFileInfo currentfile;
-        for(auto file : this->files)
+        for(auto & file : this->files)
         {
             currentfile.setFile(file.getFilePath());
             this->checkFileChanges(currentfile, file);
@@ -55,11 +55,12 @@ void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
         }
         else // Изменился размер
         {
+            //qDebug() << "currentfile:" << currentfile.size() << ",   fileOld" << fileOld.getFileSize() << Qt:: endl;
             message += " - EXIST, " + QString("OLD SIZE: ") + QString::number(fileOld.getFileSize())
                    + " NEW SIZE: " + QString::number(currentfile.size());
-
             fileOld.setFileSize(currentfile.size());
         }
+        //fileOld.setFileSize(currentfile.size());
     }
     else
     {
@@ -71,7 +72,6 @@ void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
         {
             message += QString(" - NOT EXIST ");
         }
-        fileOld.setFileSize(currentfile.size());
         fileOld.setFileExist(currentfile.exists());
     }
     emit log_signal(message);

@@ -5,8 +5,6 @@
 #include "filemanager.h"
 
 #include <QDir>
-#include <QTimer>
-
 #include <chrono>
 #include <thread>
 
@@ -46,7 +44,7 @@ int main(int argc, char *argv[]) {
 
     while (true)
     {
-        std::this_thread::sleep_for( std::chrono::milliseconds(1500));
+        std::this_thread::sleep_for( std::chrono::seconds(1));
         filemanager.checkfiles();
     };
 
