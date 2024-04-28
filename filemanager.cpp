@@ -58,9 +58,9 @@ void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
             //qDebug() << "currentfile:" << currentfile.size() << ",   fileOld" << fileOld.getFileSize() << Qt:: endl;
             message += " - EXIST, " + QString("OLD SIZE: ") + QString::number(fileOld.getFileSize())
                    + " NEW SIZE: " + QString::number(currentfile.size());
-            fileOld.setFileSize(currentfile.size());
+            //fileOld.setFileSize(currentfile.size());
+            fileOld.update();
         }
-        //fileOld.setFileSize(currentfile.size());
     }
     else
     {
@@ -72,7 +72,8 @@ void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
         {
             message += QString(" - NOT EXIST ");
         }
-        fileOld.setFileExist(currentfile.exists());
+        //fileOld.setFileExist(currentfile.exists());
+        fileOld.update();
     }
     emit log_signal(message);
 }

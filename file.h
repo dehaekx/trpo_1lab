@@ -23,11 +23,11 @@ public:
     qint64 getFileSize();
     bool getFileExist();
 
+    void update();
+
         // сеттеры
-    void setFileName(QString newName);
-    void setFilePath(QString newPath);
-    void setFileSize(qint64 newSize);
-    void setFileExist(bool newExist);
+    // void setFileSize(qint64 newSize);
+    // void setFileExist(bool newExist);
 };
 
 #endif // FILE_H
