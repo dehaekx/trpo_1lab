@@ -28,5 +28,5 @@ void File::update()
     fileSize = fileinfo.size();
 }
 
-void File::setFileSize(qint64 size) {this->fileSize = size;}
-void File::setFileExist(bool newExist) {this->fileExist = newExist;}
+// void File::setFileSize(qint64 size) {this->fileSize = size;}
+// void File::setFileExist(bool newExist) {this->fileExist = newExist;}
