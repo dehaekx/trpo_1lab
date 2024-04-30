@@ -18,6 +18,7 @@ public:
     void addFile(const QString &filePath);
     void checkfiles();
     void checkFileChanges(const QFileInfo& fileNow, File& fileOld);
+    QString informationFile();
 signals:
     void log_signal(const QString &str);
 };

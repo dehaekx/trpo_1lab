@@ -77,3 +77,26 @@ void FileManager::checkFileChanges(const QFileInfo& currentfile, File& fileOld)
     }
     emit log_signal(message);
 }
+
+
+QString FileManager::informationFile()
+{
+    QString message;
+    if (this->files.size() > 0)
+    {
+        for (auto file: this->files)
+        {
+            message += "Name: " + file.getFileName() + " , path: " + file.getFilePath();
+            if (file.getFileExist())
+            {
+                message += QString(",  - EXIST ");
+            }
+            else
+            {
+                message += QString(", - NOT EXIST ");
+            }
+            message += QString(" SIZE: ") + QString::number(file.getFileSize());
+        }
+    }
+    return message;
+}
