@@ -5,6 +5,7 @@
 #include "File.h"
 #include <QDebug>
 #include "loger.h"
+#include <cassert>
 
 class FileManager: public QObject
 {

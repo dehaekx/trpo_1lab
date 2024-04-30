@@ -15,8 +15,8 @@ int main(int argc, char *argv[]) {
     QTextStream cin(stdin);
 
     ConsoleLoger logger;
-    FileManager filemanager(&logger);
-
+    //FileManager filemanager(&logger);
+    FileManager filemanager(nullptr);
     QString currentReposiroty = QDir::currentPath().section("/", 0, -2);
     qDebug() << "Direction: " << currentReposiroty;
     QString test = currentReposiroty + "/trpo_1lab/test_files/";

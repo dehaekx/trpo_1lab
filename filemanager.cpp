@@ -2,6 +2,7 @@
 
 FileManager::FileManager(Loger* lg)
 {
+    assert(lg != NULL);
     if (lg)
     {
         this->loger = lg;
